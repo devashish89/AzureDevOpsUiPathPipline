@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool:MyPool
+pool: MyPool
 
 steps:
 - task: UiPathPack@3
