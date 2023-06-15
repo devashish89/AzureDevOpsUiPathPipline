@@ -14,10 +14,13 @@ steps:
     versionType: 'AutoVersion'
     projectJsonPath: 'project.json'
     outputType: 'Process'
+    orchestratorConnection: 'UiPathCloudOrch'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
     traceLevel: 'Information'
+
 - task: UiPathDeploy@3
   inputs:
+    orchestratorConnection: 'UiPathCloudOrch'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
     folderName: 'MyTest'
     traceLevel: 'Information'
