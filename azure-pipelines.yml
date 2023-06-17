@@ -6,6 +6,9 @@
 trigger:
 - main
 
+variables:
+  OrchfolderName: MyTest
+
 pool: MyPool
 
 steps:
@@ -22,6 +25,11 @@ steps:
   inputs:
     orchestratorConnection: 'UiPathCloudOrch'
     packagesPath: '$(Build.ArtifactStagingDirectory)\Output'
-    folderName: 'MyTest'
+    folderName: $(OrchfolderName)
     traceLevel: 'Information'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
