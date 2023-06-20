@@ -12,6 +12,25 @@ variables:
 pool: MyPool
 
 steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'devashishnigam89'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'devashishnigam89_uipathazurepipeline'
+    cliProjectName: '$(Build.Repository.Name)'
+    cliSources: '.'
+
+- task: SonarCloudAnalyze@1
+  inputs:
+    jdkversion: 'JAVA_HOME_11_X64'
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
 - task: UiPathPack@3
   inputs:
     versionType: 'AutoVersion'
