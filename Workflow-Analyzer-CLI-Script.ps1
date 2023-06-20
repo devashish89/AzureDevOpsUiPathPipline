@@ -2,7 +2,7 @@
 
 param (
     $ProjectFilePath=".\project.json",
-    $ExecutableFilePath="C:\'Program Files (x86)'\UiPath\Studio\UiPath.Studio.CommandLine.exe",
+    $ExecutableFilePath="C:\Users\"+$env:username+"\AppData\Local\Programs\UiPath\Studio\UiPath.Studio.CommandLine.exe",
     $OutputFilePath=".\$(Get-Date -Format 'yyyy-MM-dd-HH-mm-ss')-Workflow-Analysis.json"
     )
 
